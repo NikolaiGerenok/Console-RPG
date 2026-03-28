@@ -1,8 +1,7 @@
-#include "WorldMap.h"
 #include "Game.h"
-int main(){
-     Run();
 
-
-
+int main() {
+    Game game;
+    game.Run();
+    return 0;
 }

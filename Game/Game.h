@@ -17,6 +17,8 @@ class Game{
 
  private:
     WorldMap m_worldMap;
+    int m_playerX;
+    int m_playerY;
     int m_savePlayerX;
     int m_savePlayerY;
     const std::vector<std::vector<int>> m_DefaultMap; 
