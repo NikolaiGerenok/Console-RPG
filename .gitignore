@@ -13,6 +13,7 @@
 
 # Linker files
 *.ilk
+*.exp
 
 # Debugger Files
 *.pdb
@@ -39,3 +40,48 @@
 
 # debug information files
 *.dwo
+
+# --- CMake ---
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+_deps/
+
+# CMake / VS "Open Folder" build trees 
+build/
+out/
+cmake-build-*/
+CMakeUserPresets.json
+
+# --- Visual Studio  .sln / .vcxproj) ---
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+ipch/
+
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+
+.cache/
+*.log
+*.tlog
+*.idb
+*.opendb
