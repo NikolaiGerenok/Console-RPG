@@ -22,8 +22,17 @@ char Game::PlayerInput() {
 }
 
 void Game::Exploration() {
+
+#ifdef _WIN32
+   
+    system("cls");
+#else
+    system("clear");
+#endif
+
     m_worldMap.Print(m_playerX, m_playerY);
-    std::cout << "WASD — move, Q — quit\n";
+  
+    std::cout << "WASD = move, Q = quit\n";
 
     const char cmd = PlayerInput();
     if (cmd == '\0') {
