@@ -9,6 +9,7 @@ add_executable(console-rpg
     Game/Game.cpp
     WorldMap/WorldMap.cpp
     Player/Player.cpp
+    Unit/Unit.cpp
 )
 
 target_include_directories(console-rpg PRIVATE
@@ -17,4 +18,5 @@ target_include_directories(console-rpg PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/WorldMap
     ${CMAKE_CURRENT_SOURCE_DIR}/Player
     ${CMAKE_CURRENT_SOURCE_DIR}/Tile
+    ${CMAKE_CURRENT_SOURCE_DIR}/Unit
 )
