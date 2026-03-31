@@ -75,6 +75,35 @@ void Game::Exploration() {
 
     m_playerX = nx;
     m_playerY = ny;
+
+    auto tile = m_worldMap.getTile(m_playerX, m_playerY);
+    if(!tile){
+        return;
+    }else{
+        switch(*tile){
+            case TileType::Floor         :
+                break;
+            case TileType::Battle        :
+                startBattle(); break;
+            case TileType::Treasure      :
+                giveTreasure();break;
+            
+            default:
+                std::cout<< "invalid tile" << std::endl;
+                break;
+            
+        }
+    }
+
+
+}
+
+void Game::giveTreasure(){
+    std::cout<< "you find new sword" << std::endl;
+}
+
+void Game::setOnClear(){
+    
 }
 
 Game::Game()
@@ -85,5 +114,5 @@ Game::Game()
       m_DefaultMap(std::vector<std::vector<int>>{{0, 0}, {2, 1}}),
       input(' '),
       m_dy(0),
-      m_dx(0) {}
+      m_dx(0){}
 

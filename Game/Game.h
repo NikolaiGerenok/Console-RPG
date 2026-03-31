@@ -14,6 +14,9 @@ class Game{
     void Battle();
     void RestFromInitial();
     char PlayerInput();
+    void startBattle();
+    void giveTreasure();
+    void setOnClear();
 
  private:
     WorldMap m_worldMap;
@@ -25,6 +28,7 @@ class Game{
     char input;
     int m_dy;
     int m_dx;
+    
 
 
 

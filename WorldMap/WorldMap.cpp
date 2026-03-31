@@ -12,11 +12,11 @@ int WorldMap::getSize() const{
      return x >= 0 && x < m_map.size() && y >=0 && y < m_map.size();
    }
 
-   int WorldMap::getTile(int x, int y) const{
+   std::optional<TileType> WorldMap::getTile(int x, int y) const{
     if(IsInside(x,y)){
          return m_map[y][x];
         }
-        return -1; // if the tile is not inside the map, return -1
+        return std::nullopt; // if the tile is not inside the map
     }
 
     void WorldMap::Print(int playerX,int playerY){
@@ -37,7 +37,7 @@ int WorldMap::getSize() const{
 
 WorldMap::WorldMap() 
      : m_size(2),
-       m_map(m_size, std::vector<int>(m_size, 0)) {}
+       m_map(m_size, std::vector<TileType>(m_size, TileType::Floor)) {}
 
        
     

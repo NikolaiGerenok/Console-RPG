@@ -3,25 +3,31 @@
 
 #pragma once 
 #include <vector>
+#include <optional>
+#include "Tile.h"
+
 
 class WorldMap{
     public:
     WorldMap();
 
-    ~WorldMap() = default; // default destructor 
+    ~WorldMap() = default; 
 
     int getSize() const;
 
     bool IsInside(int x, int y) const;
 
-    int getTile(int x, int y) const;
+    std::optional<TileType> getTile(int x, int y) const;
 
     void Print(int playerX,int playerY);
+
+    void setTile(int x, int y, TileType tile);
 
 
     
     private:
+
     const int m_size;
-    std::vector<std::vector<int>> m_map;
+    std::vector<std::vector<TileType>> m_map;
 
 };
