@@ -2,6 +2,7 @@
 #include "WorldMap.h"
 #include <vector>
 
+
 class Game{
  public:
 
@@ -14,7 +15,7 @@ class Game{
     void Battle();
     void RestFromInitial();
     char PlayerInput();
-    void startBattle();
+    int startBattle();
     void giveTreasure();
     void setOnClear();
 

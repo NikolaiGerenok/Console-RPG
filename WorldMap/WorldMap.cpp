@@ -14,7 +14,7 @@ int WorldMap::getSize() const{
 
    std::optional<TileType> WorldMap::getTile(int x, int y) const{
     if(IsInside(x,y)){
-         return m_map[y][x];
+         return m_map[x][y];
         }
         return std::nullopt; // if the tile is not inside the map
     }
@@ -30,6 +30,12 @@ int WorldMap::getSize() const{
             }
         }
         std::cout << std::endl; // print a new line after each row
+    }
+}
+
+void WorldMap::setTile(int x, int y, TileType tile) {
+    if (IsInside(x, y)) {
+        m_map[y][x] = tile;
     }
 }
 

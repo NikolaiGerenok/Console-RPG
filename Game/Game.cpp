@@ -92,6 +92,14 @@ void Game::Exploration() {
                 std::cout<< "invalid tile" << std::endl;
                 break;
             
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
 
@@ -106,6 +114,19 @@ void Game::setOnClear(){
     
 }
 
+int Game::startBattle(){
+    std::cout << "Battle starts!\n";
+    return 17;
+}
+
+Game::RestFromInitial(){
+    return;
+}
+
+Game::Battle(){
+    return;
+}
+
 Game::Game()
     : m_playerX(0),
       m_playerY(0),
@@ -114,5 +135,15 @@ Game::Game()
       m_DefaultMap(std::vector<std::vector<int>>{{0, 0}, {2, 1}}),
       input(' '),
       m_dy(0),
-      m_dx(0){}
+      m_dx(0) {
+    
+    const int size = m_worldMap.getSize();
+    for (int y = 0; y < size; ++y) {
+        for (int x = 0; x < size; ++x) {
+            const int code = m_DefaultMap[static_cast<size_t>(y)][static_cast<size_t>(x)];
+            const TileType tile = static_cast<TileType>(code);
+            m_worldMap.setTile(x, y, tile);
+        }
+    }
+}
 
