@@ -119,11 +119,11 @@ int Game::startBattle(){
     return 17;
 }
 
-Game::RestFromInitial(){
+void Game::RestFromInitial(){
     return;
 }
 
-Game::Battle(){
+void Game::Battle(){
     return;
 }
 
