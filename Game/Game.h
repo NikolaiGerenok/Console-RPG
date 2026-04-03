@@ -1,9 +1,10 @@
 #pragma once
+#include "BattleSystem.h"
+#include "Player.h"
 #include "WorldMap.h"
 #include <vector>
 
-
-class Game{
+class Game {
  public:
 
     Game();
@@ -15,12 +16,14 @@ class Game{
     void Battle();
     void RestFromInitial();
     char PlayerInput();
-    int startBattle();
+    void startBattle();
     void giveTreasure();
     void setOnClear();
 
  private:
     WorldMap m_worldMap;
+    Player m_player;
+    BattleSystem m_battleSystem;
     int m_playerX;
     int m_playerY;
     int m_savePlayerX;

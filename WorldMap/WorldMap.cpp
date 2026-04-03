@@ -14,7 +14,7 @@ int WorldMap::getSize() const{
 
    std::optional<TileType> WorldMap::getTile(int x, int y) const{
     if(IsInside(x,y)){
-         return m_map[x][y];
+         return m_map[y][x];
         }
         return std::nullopt; // if the tile is not inside the map
     }
@@ -42,8 +42,8 @@ void WorldMap::setTile(int x, int y, TileType tile) {
 
 
 WorldMap::WorldMap() 
-     : m_size(2),
-       m_map(m_size, std::vector<TileType>(m_size, TileType::Floor)) {}
+      : m_size(2)
+      , m_map(m_size, std::vector<TileType>(m_size, TileType::Floor)) {}
 
        
     

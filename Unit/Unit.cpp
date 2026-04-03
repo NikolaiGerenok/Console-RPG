@@ -1,11 +1,11 @@
 #include "Unit.h"
 
-Unit::Unit() :
-             m_UnitHP(25),
-             m_MaxUnitHP(25),
-             m_UnitDamage(15),
-             m_UnitIsAlive(true),
-             m_UnitDefence(5){}
+Unit::Unit() 
+             : m_UnitHP(25)
+             , m_MaxUnitHP(25)
+             , m_UnitDamage(1)
+             , m_UnitIsAlive(true)
+             , m_UnitDefence(5){}
 
 int Unit::getUnitHP() const{
     return m_UnitHP;

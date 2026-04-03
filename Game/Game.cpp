@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Unit.h"
 #include <cstdlib>
 #include <iostream>
 
@@ -91,19 +92,8 @@ void Game::Exploration() {
             default:
                 std::cout<< "invalid tile" << std::endl;
                 break;
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
     }
-
-
 }
 
 void Game::giveTreasure(){
@@ -114,9 +104,10 @@ void Game::setOnClear(){
     
 }
 
-int Game::startBattle(){
+void Game::startBattle() {
     std::cout << "Battle starts!\n";
-    return 17;
+    Unit enemy;
+    m_battleSystem.BattleSystemRun(m_player, enemy);
 }
 
 void Game::RestFromInitial(){
@@ -128,14 +119,14 @@ void Game::Battle(){
 }
 
 Game::Game()
-    : m_playerX(0),
-      m_playerY(0),
-      m_savePlayerX(0),
-      m_savePlayerY(0),
-      m_DefaultMap(std::vector<std::vector<int>>{{0, 0}, {2, 1}}),
-      input(' '),
-      m_dy(0),
-      m_dx(0) {
+      : m_playerX(0)
+      , m_playerY(0)
+      , m_savePlayerX(0)
+      , m_savePlayerY(0)
+      , m_DefaultMap(std::vector<std::vector<int>>{{0, 0}, {2, 1}})
+      , input(' ')
+      , m_dy(0)
+      , m_dx(0) {
     
     const int size = m_worldMap.getSize();
     for (int y = 0; y < size; ++y) {

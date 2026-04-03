@@ -1,28 +1,25 @@
 #pragma once
 #include "Player.h"
 #include "Unit.h"
+#include <iostream>
 #include <random>
 #include <vector>
 #include "Tile.h"
-#include <iostream>
 
-class BattleSystem{
-    public:
 
+class BattleSystem {
+public:
     BattleSystem();
     ~BattleSystem() = default;
 
-    
     void giveAP();
     void outComeBattle();
-    void BattleSystemRun(Player&,Unit&);
+    void BattleSystemRun(Player&, Unit&);
     int RandomNumber();
-    void PrintBattle(int playerX, int playerY,int u);
-    
+    void PrintBattle(int playerX, int playerY, int unitX, int unitY);
+    char PlayerTakeAction();
 
-    
-    private:
-
+private:
     int m_ApOnTurn;
     bool playerTurn;
     std::vector<std::vector<TileType>> m_battleMap;
@@ -31,7 +28,6 @@ class BattleSystem{
     int m_battlePlayerY;
     int m_unitX;
     int m_unitY;
-    
-
-
+    int m_BattleDX;
+    int m_BattleDY;
 };

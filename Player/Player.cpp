@@ -1,13 +1,13 @@
 #include "Player.h"
 
-Player::Player() : 
-                m_maxPlayerHP(30),
-                m_playerHP(30),
-                m_playerDamage(10),
-                m_playerLVL(1),
-                m_isAlive(true),
-                m_totalEXP(0),
-                m_playerDefence(5){}
+Player::Player()  
+                : m_maxPlayerHP(30)
+                , m_playerHP(30)
+                , m_playerDamage(10)
+                , m_playerLVL(1)
+                , m_isAlive(true)
+                , m_totalEXP(0)
+                , m_playerDefence(5){}
 
 
 int Player::getHP() const {
