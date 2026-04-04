@@ -28,7 +28,7 @@ void BattleSystem::BattleSystemRun(Player& player, Unit& enemy) {
     system("clear");
 #endif
 
-    PrintBattle(m_battlePlayerX, m_battlePlayerY, m_unitX, m_unitY);
+    BattleDraw( player, enemy);
 
     while (player.isAlive() && enemy.UnitIsAlive() && m_ApOnTurn > 0) {
         if (playerTurn) {
@@ -45,26 +45,35 @@ void BattleSystem::BattleSystemRun(Player& player, Unit& enemy) {
             case 'R':
                 enemy.UnitTakeDamage(player.getAttack());
                 m_ApOnTurn -= 2;
+                BattleDraw(player,enemy);
                 break;
             case 'w':
             case 'W':
                 m_BattleDY = -1;
                 m_ApOnTurn -= 1;
+                TryMovePlayer();
+                BattleDraw( player, enemy);
                 break;
             case 's':
             case 'S':
                 m_BattleDY = 1;
                 m_ApOnTurn -= 1;
+                TryMovePlayer();
+                BattleDraw( player, enemy);
                 break;
             case 'a':
             case 'A':
                 m_BattleDX = -1;
                 m_ApOnTurn -= 1;
+                TryMovePlayer();
+                BattleDraw( player, enemy);
                 break;
             case 'd':
             case 'D':
                 m_BattleDX = 1;
                 m_ApOnTurn -= 1;
+                TryMovePlayer();
+                BattleDraw( player, enemy);
                 break;
             default:
                 std::cout << "invalid imput";
@@ -77,7 +86,7 @@ void BattleSystem::BattleSystemRun(Player& player, Unit& enemy) {
             playerTurn = true;
         }
         
-        
+       
     }
 }
 
@@ -123,4 +132,41 @@ char BattleSystem::PlayerTakeAction() {
         return '\0';
     }
     return ch;
+}
+
+bool BattleSystem::IsInsideBattle(int x, int y) const{
+    return x >= 0 && x < BattleSize() && y >=0 && y < BattleSize();
+  }
+
+int BattleSystem::BattleSize() const{
+    return m_battleMapSize;
+}
+
+int BattleSystem::TryMovePlayer(){
+    const int BattleDX = m_battlePlayerX + m_BattleDX;
+    const int BattleDY = m_battlePlayerY + m_BattleDY;
+    if (!IsInsideBattle(BattleDX, BattleDY) || BattleDX == m_unitX && BattleDY == m_unitY ) {
+        std::cout << "can't move there\n";
+        return m_ApOnTurn +=1;
+    }
+
+    m_battlePlayerX = BattleDX;
+    m_battlePlayerY = BattleDY;
+    return 0;
+}
+
+void BattleSystem::BattleDraw(Player& player, Unit& enemy){
+    #ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+
+PrintBattle(m_battlePlayerX, m_battlePlayerY, m_unitX, m_unitY);
+
+std::cout << "=======================" << std::endl;
+std::cout << "Player HP:" << player.getHP() << "   ";
+std::cout << "Enemy HP" << enemy.getUnitHP() << std::endl;
+std::cout << "Attack - r" << m_ApOnTurn <<std::endl;
+
 }

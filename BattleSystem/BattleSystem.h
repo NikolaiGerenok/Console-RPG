@@ -18,6 +18,10 @@ public:
     int RandomNumber();
     void PrintBattle(int playerX, int playerY, int unitX, int unitY);
     char PlayerTakeAction();
+    int BattleSize() const;
+    bool IsInsideBattle(int x, int y) const;
+    int TryMovePlayer();
+    void BattleDraw(Player& player, Unit& enemy);
 
 private:
     int m_ApOnTurn;
