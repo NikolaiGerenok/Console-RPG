@@ -15,6 +15,9 @@ public:
     bool isDead() const;
     void takeDamage(int amount);
     void addExperience(int amount);
+    void resetToInitialState();
+    void addDamage(int amount);
+   
 
 private:
     void applyLevelUp();

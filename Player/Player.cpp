@@ -3,7 +3,7 @@
 Player::Player()  
                 : m_maxPlayerHP(30)
                 , m_playerHP(30)
-                , m_playerDamage(10)
+                , m_playerDamage(15)
                 , m_playerLVL(1)
                 , m_isAlive(true)
                 , m_totalEXP(0)
@@ -71,5 +71,19 @@ void  Player::addExperience(int amount){
   int Player::getExpToNextLevel() const {
      return 100*m_playerLVL - m_totalEXP;
   }
+
+  void Player::addDamage(int amount){
+    m_playerDamage += amount;
+  }
+
+void Player::resetToInitialState() {
+    m_maxPlayerHP = 30;
+    m_playerHP = 30;
+    m_playerDamage = 5;
+    m_playerLVL = 1;
+    m_totalEXP = 0;
+    m_isAlive = true;
+    m_playerDefence = 5;
+}
 
 
